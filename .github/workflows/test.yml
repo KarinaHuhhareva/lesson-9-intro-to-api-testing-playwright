@@ -28,7 +28,6 @@ jobs:
         run: |
             echo "Running Prettier to check for formatting issues..."
             npm run prettier:check
-
       - name: Run ESLint check
         run: |
             echo "Running ESLint to check for linting issues..."
@@ -40,6 +39,9 @@ jobs:
           npx tsc --noEmit
 
       - name: Run Playwright API tests
+        env:
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
         run: |
           echo "Running Playwright to execute API tests..."
           npx playwright test    
