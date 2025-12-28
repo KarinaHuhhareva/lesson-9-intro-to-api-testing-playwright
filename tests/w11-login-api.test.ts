@@ -24,6 +24,8 @@ test.describe('Login API', () => {
       },
     })
 
+      console.log('DTO', dto);
+
     expect(response.status()).toBe(StatusCodes.OK)
     const responseBody = await response.text()
     jwtToken = responseBody
